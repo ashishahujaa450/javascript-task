@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section class="main-app">
+
+
+        <!--app search and filter-->
+        <div class="container">
+
+            <div class="row mt-5 mb-3">
+                <div class="col-12">
+                    <h2>Advance Todo App</h2>
+                </div>
+            </div>
+
+
+            <div class="row mb-2 justify-content-between">
+                <div class="col-3">
+                    <label for="taskSearch"></label>
+                    <input type="text" id="taskSearch" class="search form-control" placeholder="Search...">
+                </div>
+
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="taskFilter">Filter by:-</label>
+                        <select class="form-control" id="taskFilter">
+                            <option value="completed">Completed</option>
+                            <option value="deleted">Deleted</option>
+                            <option value="Expired">Expired</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--app form-->
+        <div class="container">
+
+            <form class="taskAddForm">
+                <div class="form-group">
+                    <label for="text">Enter Task Details</label>
+                    <input type="text" class="form-control" id="taskDetail" placeholder="Enter task Details"
+                        name="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Select Expiration Time</label>
+                    <select class="form-control" id="taskExpiration">
+                        <option value="2">15 mins</option>
+                        <option value="30">30 mins</option>
+                        <option value="60">1 hour</option>
+                        <option value="300">5 hour</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Select Task Priority</label>
+                    <select class="form-control" id="taskPriority">
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="critical">critical</option>
+                    </select>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </div>
+
+
+        <!--task list-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 task-wrapper">
+
+                    <!-- <div class="card w-100 mb-5 shadow-lg low-priority" id="%id%">
+                        <div class="card-body">
+
+                            <div class="card-header-wrapper d-flex justify-content-between mb-3">
+                                <input type="text" class="form-control task-title border-0" value="title here">
+                                <span class="lnr lnr-pencil" class="edit-task"></span>
+                            </div>
+
+                            <p> <span class="badge badge-primary s-pending">%status%</span></p>
+
+                            <p class="priority"> <span class="lnr lnr-clock"></span> %time to expire%</p>
+
+                            <button type="button" class="btn btn-warning complete-task mr-3">Complete</button><button
+                                type="button" class="btn btn-danger delete-task">Delete</button>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

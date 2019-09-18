@@ -1,0 +1,25 @@
+.card-header-wrapper {}
+
+.card-header-wrapper input {
+    padding-left: 0;
+}
+
+.card-header-wrapper span {
+    cursor: pointer;
+}
+
+.card-header-wrapper input {
+    max-width: 700px;
+}
+
+.card.low-priority {
+    border-bottom: 5px solid #d4d4d4;
+}
+
+.card.medium-priority {
+    border-bottom: 5px solid #007bff
+}
+
+.card.critical-priority {
+    border-bottom: 5px solid red;
+}
