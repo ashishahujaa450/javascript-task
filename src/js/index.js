@@ -106,7 +106,20 @@ const completeTask = (e) => {
 
     //update ui
     addTaskView.updateStatusId(itemId, currentStatus, state.todoList.getStatus(itemId))
+}
 
+//delete task controller
+const deleteTask = (e) => {
+    //get clicked item id
+    const itemId = e.target.parentElement.parentElement.id;
+
+    //remove item from state
+    state.todoList.deleteTask(itemId)
+
+
+    //remove item form ui
+    const element = document.querySelector(`#${itemId}`)
+    element.parentElement.removeChild(element)
 
 }
 
@@ -134,6 +147,13 @@ domData.taskListWrapper.addEventListener('click', (e) => {
     if (e.target.matches('button.complete-task, button.complete-task *')) {
         //complete controller
         completeTask(e);
+    }
+
+
+    //delete task event here
+    if (e.target.matches('button.delete-task, button.delete-task')) {
+        //delete controller
+        deleteTask(e)
     }
 })
 
