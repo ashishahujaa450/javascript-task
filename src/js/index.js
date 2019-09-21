@@ -6,11 +6,11 @@ import {
 //import model
 import
 Task
-from './model/Add_task'
+from './model/Task'
 
 
 //import view
-import * as addTaskView from './view/add_taskView'
+import * as addTaskView from './view/task-view'
 
 
 
@@ -93,6 +93,23 @@ const editTitle = (e) => {
     })
 }
 
+//complete task controller
+const completeTask = (e) => {
+    //get clicked item id
+    const itemId = e.target.parentElement.parentElement.id;
+
+    //get current status
+    const currentStatus = state.todoList.getStatus(itemId)
+
+    //change status into state
+    state.todoList.updateStatus(itemId, 'completed')
+
+    //update ui
+    addTaskView.updateStatusId(itemId, currentStatus, state.todoList.getStatus(itemId))
+
+
+}
+
 
 
 //event goes here
@@ -108,9 +125,15 @@ domData.taskListWrapper.addEventListener('click', (e) => {
 
     //edit controller here
     if (e.target.matches('span.edit, span.edit *')) {
-
         //edit title controller
-        editTitle(e)
+        editTitle(e);
+    }
+
+
+    //complete task event here
+    if (e.target.matches('button.complete-task, button.complete-task *')) {
+        //complete controller
+        completeTask(e);
     }
 })
 
@@ -130,17 +153,19 @@ const countDownTimer = (elementId, countDownDate) => {
     }
 
 
-    var interval = setInterval(() => {
+    const interval = setInterval(() => {
         // Get today's date and time
         var now = new Date().getTime();
 
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
 
+        let status = state.todoList.getStatus(elementId);
+
         // Time calculations for days, hours, minutes and seconds
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="demo"
         elm.innerHTML = hours + "h " +
@@ -162,6 +187,8 @@ const countDownTimer = (elementId, countDownDate) => {
 
             elm.innerHTML = 'Task Expired!'
 
+        } else if (status === 'completed') {
+            elm.innerHTML = 'Task Completed!'
         }
     }, 1000);
 
