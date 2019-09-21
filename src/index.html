@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <label for="taskFilter">Filter by:-</label>
                         <select class="form-control" id="taskFilter">
+                            <option value="all">All</option>
                             <option value="completed">Completed</option>
-                            <option value="deleted">Deleted</option>
-                            <option value="Expired">Expired</option>
+                            <option value="expired">Expired</option>
                         </select>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <label for="priority">Select Expiration Time</label>
                     <select class="form-control" id="taskExpiration">
-                        <option value="900000">15 mins</option>
+                        <option value="300000">5 mins</option>
                         <option value="1800000">30 mins</option>
                         <option value="3600000">1 hour</option>
                         <option value="18000000">5 hour</option>
