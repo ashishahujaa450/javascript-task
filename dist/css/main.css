@@ -23,3 +23,15 @@
 .card.critical-priority {
     border-bottom: 5px solid red;
 }
+
+span#s-pending {
+    background-color: #007bff !important;
+}
+
+span#s-expired {
+    background-color: black !important;
+}
+
+span#s-completed {
+    background-color: orange !important;
+}

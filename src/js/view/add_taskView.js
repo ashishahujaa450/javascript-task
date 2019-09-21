@@ -35,15 +35,15 @@ export const renderTask = (taskObj) => {
 
     switch (taskObj.status) {
         case 'completed':
-            status = `<p> <span class="badge badge-primary s-completed">${taskObj.status}</span></p>`
+            status = `<p> <span class="badge badge-primary" id="s-completed">${taskObj.status}</span></p>`
             break;
 
         case 'expired':
-            status = `<p> <span class="badge badge-primary s-expired">${taskObj.status}</span></p>`
+            status = `<p> <span class="badge badge-primary" id="s-expired">${taskObj.status}</span></p>`
             break;
 
         default:
-            status = `<p> <span class="badge badge-primary s-pending">${taskObj.status}</span></p>`
+            status = `<p> <span class="badge badge-primary" id="s-pending">${taskObj.status}</span></p>`
     }
 
 
@@ -59,7 +59,7 @@ export const renderTask = (taskObj) => {
 
             ${status}
 
-            <p class="priority"> <span class="lnr lnr-clock"></span> ${taskObj.expireTime}</p>
+            <p class="priority"> <span class="lnr lnr-clock"></span> <span class="time"></span></p>
 
             <button type="button" class="btn btn-warning complete-task mr-3">Complete</button><button type="button" class="btn btn-danger delete-task">Delete</button>
         </div>
@@ -68,4 +68,22 @@ export const renderTask = (taskObj) => {
 
     //append markup
     domData.taskListWrapper.insertAdjacentHTML('beforeend', markup);
+}
+
+
+//task expired update ui
+export const taskExpiredRenderUi = (expireElmId, currentStatus, newStatus) => {
+    //update status id
+    updateStatusId(expireElmId, currentStatus, newStatus)
+
+}
+
+const updateStatusId = (elmParent, currentStatus, newStatus) => {
+    console.log(elmParent, currentStatus, newStatus)
+    const elm = document.querySelector(`#${elmParent} span#s-${currentStatus}`);
+
+    elm.setAttribute('id', `s-${newStatus}`)
+
+    //update status text
+    elm.innerHTML = `${newStatus}`
 }

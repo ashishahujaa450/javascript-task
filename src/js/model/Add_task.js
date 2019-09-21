@@ -11,6 +11,7 @@ export default class Task {
             expireTime,
             priority,
             status,
+            totalTime: new Date().getTime() + parseInt(expireTime),
             id: uniqid()
         }
 
@@ -22,7 +23,7 @@ export default class Task {
 
     deleteTask(id) {
         //getting indexo of item with same id
-        const index = this.task.findIndex((item) => item.id === id)
+        const index = this.taskList.findIndex((item) => item.id === id)
 
         //removing item from  list
         this.taskList.splice(index, 1)
@@ -30,18 +31,24 @@ export default class Task {
 
     updateTitle(id, newTitle) {
         //getting item
-        const item = this.task.find((item) => item.id === id);
+        const item = this.taskList.find((item) => item.id === id);
 
         //updating new title
         item.title = newTitle;
     }
 
     updateStatus(id, newStatus) {
-        const item = this.task.find((item) => item.id === id);
+        const item = this.taskList.find((item) => item.id === id);
 
         //updating new title
         item.status = newStatus;
 
+    }
+
+
+    getStatus(id) {
+        const item = this.taskList.find((item) => item.id === id);
+        return item.status;
     }
 
 
