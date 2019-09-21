@@ -5,5 +5,6 @@ export const domData = {
   taskTime: document.querySelector('#taskExpiration'),
   taskPriority: document.querySelector('#taskPriority'),
   taskListWrapper: document.querySelector('.task-wrapper'),
-  taskFilter: document.querySelector('select#taskFilter')
+  taskFilter: document.querySelector('select#taskFilter'),
+  searchFilter: document.querySelector('#taskSearch')
 };

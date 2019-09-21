@@ -80,7 +80,6 @@ export const taskExpiredRenderUi = (expireElmId, currentStatus, newStatus) => {
 }
 
 export const updateStatusId = (elmParent, currentStatus, newStatus) => {
-    console.log(elmParent, currentStatus, newStatus)
     const elm = document.querySelector(`#${elmParent} span#s-${currentStatus}`);
 
     elm.setAttribute('id', `s-${newStatus}`)

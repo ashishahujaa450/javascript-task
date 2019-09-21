@@ -8,6 +8,7 @@ import Task from './model/Task';
 //import view
 import * as addTaskView from './view/task-view';
 import * as filterView from './view/filter-view';
+import * as searchView from './view/search-view'
 
 /**
  * state
@@ -137,6 +138,20 @@ const taskFilter = (e) => {
 }
 
 
+// search task controller
+const taskSearch = (e) => {
+    //get search keyword
+    const searchKeyWord = e.target.value.toLowerCase();
+
+
+    //do search
+    const idArr = searchView.searchTask(state.todoList.taskList, searchKeyWord)
+
+    //show result
+    searchView.renderResult(idArr)
+}
+
+
 
 //event goes here
 domData.taskForm.addEventListener('submit', e => {
@@ -152,7 +167,13 @@ domData.taskFilter.addEventListener('change', (e) => {
     taskFilter(e);
 })
 
+/**
+ * search process start here
+ */
 
+domData.searchFilter.addEventListener('keyup', (e) => {
+    taskSearch(e);
+})
 
 
 
