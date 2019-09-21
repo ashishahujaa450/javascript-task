@@ -26,6 +26,7 @@ export const validateTask = (taskObj) => {
 //clearing input fields
 export const clearFields = () => {
     domData.taskTitle.value = '';
+    domData.taskTitle.focus()
 
 }
 
@@ -53,8 +54,8 @@ export const renderTask = (taskObj) => {
         <div class="card-body">
 
             <div class="card-header-wrapper d-flex justify-content-between mb-3">
-                <input type="text" class="form-control task-title border-0" value="${taskObj.title}">
-                <span class="lnr lnr-pencil"></span>
+                <input type="text" class="form-control task-title border-0" disabled value="${taskObj.title}">
+                <span class="lnr lnr-pencil edit p-2"></span>
             </div>
 
             ${status}

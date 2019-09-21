@@ -45,11 +45,9 @@ export default class Task {
 
     }
 
-
     getStatus(id) {
         const item = this.taskList.find((item) => item.id === id);
         return item.status;
     }
-
 
 }

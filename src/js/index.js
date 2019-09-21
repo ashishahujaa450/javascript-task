@@ -57,7 +57,6 @@ const addTask = () => {
         //ready ui for chagnes
         addTaskView.clearFields();
 
-        console.log(todoItem);
         //update ui
         addTaskView.renderTask(todoItem)
 
@@ -71,6 +70,30 @@ const addTask = () => {
 }
 
 
+//edit controller
+const editTitle = (e) => {
+    //get clicked item id
+    const itemId = e.target.parentElement.parentElement.parentElement.id;
+
+
+    //enable input edit
+    const titleInput = document.querySelector(`#${itemId} input.task-title`);
+
+    titleInput.disabled = false;
+    titleInput.focus()
+
+    //action on pressing 'enter'
+    titleInput.addEventListener('keypress', (e) => {
+        if (e.keyCode === 13) {
+            state.todoList.updateTitle(itemId, titleInput.value);
+
+            //again disable input
+            titleInput.disabled = true;
+        }
+    })
+}
+
+
 
 //event goes here
 domData.taskForm.addEventListener('submit', (e) => {
@@ -78,7 +101,18 @@ domData.taskForm.addEventListener('submit', (e) => {
     addTask();
 });
 
+/**
+ * task list wrapper event with event delegation
+ */
+domData.taskListWrapper.addEventListener('click', (e) => {
 
+    //edit controller here
+    if (e.target.matches('span.edit, span.edit *')) {
+
+        //edit title controller
+        editTitle(e)
+    }
+})
 
 
 
