@@ -6,5 +6,7 @@ export const domData = {
   taskPriority: document.querySelector('#taskPriority'),
   taskListWrapper: document.querySelector('.task-wrapper'),
   taskFilter: document.querySelector('select#taskFilter'),
-  searchFilter: document.querySelector('#taskSearch')
+  searchFilter: document.querySelector('#taskSearch'),
+  showData: document.querySelector('.show-data'),
+  chartContainer: document.querySelector('#piechart')
 };

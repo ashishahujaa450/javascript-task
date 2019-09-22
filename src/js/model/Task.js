@@ -54,4 +54,18 @@ export default class Task {
       return undefined;
     }
   }
+
+  //get count for chart creation
+
+  getCount(status) {
+    let taskCount = 0;
+
+    this.taskList.forEach((elm) => {
+      if (elm.status === status) {
+        taskCount += 1;
+      }
+    })
+
+    return taskCount;
+  }
 }

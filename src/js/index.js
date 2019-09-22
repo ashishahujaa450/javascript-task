@@ -8,7 +8,8 @@ import Task from './model/Task';
 //import view
 import * as addTaskView from './view/task-view';
 import * as filterView from './view/filter-view';
-import * as searchView from './view/search-view'
+import * as searchView from './view/search-view';
+import * as chartView from './view/pie-view';
 
 /**
  * state
@@ -152,6 +153,13 @@ const taskSearch = (e) => {
 }
 
 
+//chart show controller
+const showData = (e) => {
+    domData.chartContainer.style.display = 'block'
+    chartView.drawChart(state.todoList.getCount('completed'), state.todoList.getCount('expired'), state.todoList.getCount('pending'))
+}
+
+
 
 //event goes here
 domData.taskForm.addEventListener('submit', e => {
@@ -200,6 +208,16 @@ domData.taskListWrapper.addEventListener('click', e => {
         deleteTask(e);
     }
 });
+
+
+/**
+ * chart show event goes here
+ */
+
+domData.showData.addEventListener('click', showData);
+
+
+
 
 /**
  * countdown timer
