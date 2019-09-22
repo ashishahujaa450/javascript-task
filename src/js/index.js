@@ -30,7 +30,11 @@ window.addEventListener('load', e => {
 
     //updateview
     state.todoList.taskList.forEach((elm) => {
+        //update ui
         addTaskView.renderTask(elm)
+
+        //add timer 
+        countDownTimer(elm.id, elm.totalTime);
     })
 
 });
