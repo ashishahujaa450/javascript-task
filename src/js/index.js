@@ -24,6 +24,15 @@ const state = {};
 window.addEventListener('load', e => {
     //initialize task into state
     state.todoList = new Task();
+
+    //get storage
+    state.todoList.getStorage()
+
+    //updateview
+    state.todoList.taskList.forEach((elm) => {
+        addTaskView.renderTask(elm)
+    })
+
 });
 
 /**

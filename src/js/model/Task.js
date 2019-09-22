@@ -18,6 +18,9 @@ export default class Task {
     //pusshing item into task array
     this.taskList.push(item);
 
+    //set local storage
+    this.setStorage()
+
     return item;
   }
 
@@ -27,6 +30,9 @@ export default class Task {
 
     //removing item from  list
     this.taskList.splice(index, 1);
+
+    //set local storage
+    this.setStorage()
   }
 
   updateTitle(id, newTitle) {
@@ -35,6 +41,9 @@ export default class Task {
 
     //updating new title
     item.title = newTitle;
+
+    //set local storage
+    this.setStorage()
   }
 
   updateStatus(id, newStatus) {
@@ -42,7 +51,11 @@ export default class Task {
 
     //updating new title
     item.status = newStatus;
+
+    //set local storage
+    this.setStorage()
   }
+
 
   getStatus(id) {
     const item = this.taskList.find(item => item.id === id);
@@ -67,5 +80,17 @@ export default class Task {
     })
 
     return taskCount;
+  }
+
+  //local storage for presist data
+  setStorage() {
+    localStorage.setItem('task', JSON.stringify(this.taskList))
+  }
+
+  getStorage() {
+    const storage = JSON.parse(localStorage.getItem('task'))
+
+    if (storage)
+      this.taskList = storage;
   }
 }
